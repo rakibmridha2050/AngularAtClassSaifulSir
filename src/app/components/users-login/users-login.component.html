@@ -1,0 +1,88 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+
+      <div class="card shadow-lg rounded-4">
+        <div class="card-body p-4">
+          <h2 class="text-center mb-4">User Registration</h2>
+
+          <form action="/submit" method="post" (ngSubmit)="onSubmit()">
+
+            <!-- Full Name -->
+            <div class="mb-3">
+              <label for="name" class="form-label">Full Name</label>
+              <input type="text" class="form-control" id="name" name="fullname" [(ngModel)]="formData.name">
+            </div>
+
+            <!-- Email -->
+            <div class="mb-3">
+              <label for="email" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="email" name="email" [(ngModel)]="formData.email">
+            </div>
+
+            <!-- Password -->
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input type="password" class="form-control" id="password" name="password" [(ngModel)]="formData.password">
+            </div>
+            <!-- Number -->
+            <div class="mb-3">
+              <label for="number" class="form-label">Number</label>
+              <input type="number" class="form-control" id="number" name="number" [(ngModel)]="formData.age">
+            </div>
+
+            <!-- dob -->
+            <div class="mb-3">
+              <label for="number" class="form-label">Date Of Birth</label>
+              <input type="date" class="form-control" id="dob" name="dob" [(ngModel)]="formData.dob">
+            </div>
+
+            <!-- Subscriber -->
+            <div class="mb-3">
+             
+              <input type="checkbox" class="form-check-input" id="terms" name="terms" [(ngModel)]="formData.subscribe">
+              <label for="number" class="form-label">Subscriber</label>
+            </div>
+            <!-- Gender -->
+            <div class="mb-3">
+              <label class="form-label">Gender</label><br>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" id="male" name="gender" value="male" [(ngModel)]="formData.gender">
+                <label class="form-check-label" for="male">Male</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" id="female" name="gender" value="female" [(ngModel)]="formData.gender">
+                <label class="form-check-label" for="female">Female</label>
+              </div>
+            </div>
+
+            <!-- Country -->
+            <div class="mb-3">
+              <label for="country" class="form-label">Country</label>
+              <select class="form-select" id="country" name="country" [(ngModel)]="formData.country">
+                <option selected disabled>Choose...</option>
+                <option *ngFor="let c of countries">{{c}}</option>
+                
+              </select>
+            </div>
+
+            <!-- Bio -->
+            <div class="mb-3">
+              <label for="bio" class="form-label">Bio</label>
+              <textarea name="bio" id="bio" [(ngModel)]="formData.beo"></textarea>
+            </div>
+
+
+
+            <!-- Submit -->
+            <div class="d-grid">
+              <button type="submit" class="btn btn-primary btn-lg">Register</button>
+            </div>
+          </form>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
