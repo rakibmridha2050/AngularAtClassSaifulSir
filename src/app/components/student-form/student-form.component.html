@@ -1,43 +1,91 @@
 <div class="container mt-5">
 
 
-  <form [formGroup]="userForm" (ngSubmit)="onSumit()" class="p-4 border rounded bg-light shadow-sm" >
+  <form [formGroup]="userForm" (ngSubmit)="onSumit()" class="p-4 border rounded bg-light shadow-sm">
     <h2 class="mb-4">Registration</h2>
 
     <div class="form-group">
       <label for="name">Name: </label>
-      <input  type="text" formControlName="name" class="form-control" placeholder="Your full name">
+      <input type="text" formControlName="name" class="form-control" placeholder="Your full name">
 
-      <div *ngIf="userForm.get('name')?.invalid && (userForm.get('name')?.dirty || userForm.get('name')?.touched)" class="error">
+      <div *ngIf="userForm.get('name')?.invalid && (userForm.get('name')?.dirty || userForm.get('name')?.touched)"
+        class="error">
 
         <div *ngIf="userForm.get('name')?.errors?.['required']">Name is required</div>
-        <div *ngIf="userForm.get('name')?.errors?.['minLength']">Name must be at least 3 characters long</div>
+        <div *ngIf="userForm.get('name')?.errors?.['minlength']">Name must be at least 3 characters long</div>
 
       </div>
 
 
     </div>
 
+    <!-- email -->
     <div class="form-group">
       <label for="email">Email: </label>
       <input name="email" type="text" formControlName="email" class="form-control" placeholder="Enter your email">
-    
+
       <div *ngIf="userForm.get('email')?.invalid && (userForm.get('email')?.dirty || userForm.get('email')?.touched)"
         class="error">
-    
+
         <div *ngIf="userForm.get('email')?.errors?.['required']">Email is required</div>
         <div *ngIf="userForm.get('email')?.errors?.['email']">Email must have " @ " and " . " </div>
-    
-      </div>
-    
-    
-    </div>
 
+      </div>
+
+
+    </div>
+    <!-- age -->
     <div class="mb-3">
       <label for="age" class="form-label">Age</label>
-      <input id="age" formControlName="age" type="number" min="1" max="120" class="form-control" placeholder="Enter your age ex: 25" required>
+      <input id="age" formControlName="age" type="number" min="1" max="120" class="form-control"
+        placeholder="Enter your age ex: 25" required>
     </div>
 
+    <!-- password -->
+    <div class="form-group">
+      <label for="password">Password: </label>
+      <input name="password" type="text" formControlName="password" class="form-control"
+        placeholder="Enter your password">
+
+      <div
+        *ngIf="userForm.get('password')?.invalid && (userForm.get('password')?.dirty || userForm.get('password')?.touched)"
+        class="error">
+
+        <div *ngIf="userForm.get('password')?.errors?.['required']">password is required</div>
+        <div *ngIf="userForm.get('password')?.errors?.['pattern']">
+          Password must have exactly 8 digits between 1 and 9
+        </div>
+
+
+      </div>
+
+
+    </div>
+
+    <!-- number -->
+    <div class="form-group">
+      <label for="number">number: </label>
+      <input name="number" type="text" formControlName="number" class="form-control"
+        placeholder="Enter your number">
+
+      <div
+        *ngIf="userForm.get('number')?.invalid && (userForm.get('number')?.dirty || userForm.get('number')?.touched)"
+        class="error">
+
+        <div *ngIf="userForm.get('number')?.errors?.['required']">number is required</div>
+        <div *ngIf="userForm.get('number')?.errors?.['pattern']">
+          number must have exactly 8 digits between 1 and 9
+        </div>
+
+
+      </div>
+
+
+    </div>
+
+
+
+    <br><br>
     <button [disabled]="userForm.invalid" type="submit" class="btn btn-primary w-100">Submit</button>
   </form>
 </div>

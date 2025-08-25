@@ -16,7 +16,9 @@ export class StudentFormComponent implements OnInit {
     this.userForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(3)]],
       email: ['', [Validators.required, Validators.email]],
-      age: [null]
+      age: [null],
+      password: ['', [Validators.required, Validators.pattern(/^[1-9]{8}$/)]],
+      number: ['', [Validators.required, Validators.pattern(/^[0-9]{11}$/)]]
     });
   }
 
